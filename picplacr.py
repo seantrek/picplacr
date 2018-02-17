@@ -59,7 +59,7 @@ for photo in flickr.walk_set(pset.get('id')):
     print('Photo {} was taken on {} at {}'.format(id, taken_dt, trackpoints))
     for tp in trackpoints:
         print('Trying to geotag it now...')
-        resp = flickr.photos.geo.setLocation(photo_id=id, lat=unicode(tp.latitude), lon=unicode(tp.longitude))
+        resp = flickr.photos.geo.setLocation(photo_id=id, lat=tp.latitude, lon=tp.longitude)
         if resp.get('stat') == 'ok':
             print('Success!')
         else:
